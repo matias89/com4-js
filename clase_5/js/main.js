@@ -59,7 +59,7 @@ function _acceso(name, age) {
     } else {
         window.alert(`Bienvenido ${name}`);
     }
-}
+};
 
 const __acceso = function (name, age) {
     if (age < 18) {
@@ -67,7 +67,7 @@ const __acceso = function (name, age) {
     } else {
         window.alert(`Bienvenido ${name}`);
     }
-}
+};
 
 const acceso = (name, age) => {
     let message = '';
@@ -77,7 +77,7 @@ const acceso = (name, age) => {
         message = `Bienvenido ${name}`;
     }
     return message;
-}
+};
 
 const n = window.prompt('Ingresa tu nombre');
 const e = window.prompt('Ingresa tu edad');
