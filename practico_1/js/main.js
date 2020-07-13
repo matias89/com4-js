@@ -1,28 +1,61 @@
 const procesarFormulario = event => {
     event.preventDefault(); // Necesario para que el submit no recargue la página y se pierdan los datos
     const target = event.target;
+    const name = target.name.value;
+    const surname = target.surname.value;
     const email = target.email.value;
-    const fecha = target.fecha.value;
-    if (!email) {
+    const date = target.date.value;
+    const dni = target.dni.value;
+    const region = target.region.value;
+    const city = target.city.value;
+    const address = target.address.value;
+    const number = target.number.value;
+    const dpto = target.dpto.value;
+    const floor = target.floor.value;
+    if (!name || !surname || !email || !date || !dni || !region || !city || !address || !number) {
         alert('No se han completado todos los campos requeridos');
+    } else {
+        const myData = document.getElementById('my-data');
+        const formData = `
+        <h4><b>Nombre:</b> ${name}</h4>
+        <h4><b>Apellido:</b> ${surname}</h4>
+        <h4><b>Email:</b> ${email}</h4>
+        <h4><b>Fecha Nacimiento:</b> ${date}</h4>
+        <h4><b>Número Documento:</b> ${dni}</h4>
+        <h4><b>Provincia:</b> ${region}</h4>
+        <h4><b>Ciudad:</b> ${city}</h4>
+        <h4><b>Domicilio:</b> ${address}</h4>
+        <h4><b>Número:</b> ${number}</h4>
+        <h4><b>Dpto:</b> ${dpto}</h4>
+        <h4><b>Piso:</b> ${floor}</h4>
+    `;
+        myData.innerHTML = formData;
     }
     // Si todo va bien en las validaciones
-    const myData = document.getElementById('my-data');
-    const formData = `
-        <h4>Email: ${email}</h4>
-        <h4>Email: ${fecha}</h4>
-    `;
-    myData.innerHTML = formData;
+
 };
 
 const borrarFormulario = () => {
+    const name = document.getElementById('name');
+    name.value = '';
+    const surname = document.getElementById('surname');
+    surname.value = '';
     const email = document.getElementById('email');
     email.value = '';
+    const date = document.getElementById('date');
+    date.value = '';
+    const dni = document.getElementById('dni');
+    dni.value = '';
+    const region = document.getElementById('region');
+    region.value = '';
+    const city = document.getElementById('city');
+    city.value = '';
+    const address = document.getElementById('address');
+    address.value = '';
+    const number = document.getElementById('number');
+    number.value = '';
+    const dpto = document.getElementById('dpto');
+    dpto.value = '';
+    const floor = document.getElementById('floor');
+    floor.value = '';
 };
-
-let fecha = document.getElementById('fecha');
-console.log(fecha.value);
-
-fecha.addEventListener('keyup', (event) => {
-    console.log(event);
-});
