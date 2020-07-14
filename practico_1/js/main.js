@@ -1,4 +1,4 @@
-const procesarFormulario = event => {
+/*const procesarFormulario = event => {
     event.preventDefault(); // Necesario para que el submit no recargue la página y se pierdan los datos
     const target = event.target;
     const name = target.name.value;
@@ -60,41 +60,79 @@ const procesarFormulario = event => {
     }
     // Si todo va bien en las validaciones
 
-};
+};*/
 
-const borrarFormulario = () => {
-    const name = document.getElementById('name');
-    name.value = '';
-    const surname = document.getElementById('surname');
-    surname.value = '';
-    const email = document.getElementById('email');
-    email.value = '';
-    const date = document.getElementById('date');
-    date.value = '';
-    const dni = document.getElementById('dni');
-    dni.value = '';
-    const region = document.getElementById('region');
-    region.value = '';
-    const city = document.getElementById('city');
-    city.value = '';
-    const address = document.getElementById('address');
-    address.value = '';
-    const number = document.getElementById('number');
-    number.value = '';
-    const dpto = document.getElementById('dpto');
-    dpto.value = '';
-    const floor = document.getElementById('floor');
-    floor.value = '';
-};
+const error = '*Dato Requerido *';
 
-const cambiarClase = () => {
-    document.getElementById('name').className = 'form-control';
-    document.getElementById('surname').className = 'form-control';
-    document.getElementById('email').className = 'form-control';
-    document.getElementById('date').className = 'form-control';
-    document.getElementById('dni').className = 'form-control';
-    document.getElementById('region').className = 'form-control';
-    document.getElementById('city').className = 'form-control';
-    document.getElementById('address').className = 'form-control';
-    document.getElementById('number').className = 'form-control';
+const procesarFormulario = event => {
+    event.preventDefault(); // Necesario para que el submit no recargue la página y se pierdan los datos
+
+    const {
+        target: {
+            name,
+            surname,
+            email,
+            date,
+            dni,
+            region,
+            city,
+            address,
+            number,
+            dpto,
+            floor
+        }
+    } = event;
+
+    const inputs = document.querySelectorAll('input');
+    console.log(inputs);
+    let countError = 0;
+    inputs.forEach(element => {
+        const { required, value, id } = element;
+        if (required && value === '') {
+            document.querySelector(id).className = 'form-control is-invalid';
+            countError++;
+        }
+    });
+
+    if (countError > 0) {
+        alert('No se han completado todos los campos requeridos. Los datos requeridos están indicados con *');
+    }
+
+
+    /*const borrarFormulario = () => {
+        const name = document.getElementById('name');
+        name.value = '';
+        const surname = document.getElementById('surname');
+        surname.value = '';
+        const email = document.getElementById('email');
+        email.value = '';
+        const date = document.getElementById('date');
+        date.value = '';
+        const dni = document.getElementById('dni');
+        dni.value = '';
+        const region = document.getElementById('region');
+        region.value = '';
+        const city = document.getElementById('city');
+        city.value = '';
+        const address = document.getElementById('address');
+        address.value = '';
+        const number = document.getElementById('number');
+        number.value = '';
+        const dpto = document.getElementById('dpto');
+        dpto.value = '';
+        const floor = document.getElementById('floor');
+        floor.value = '';
+    };
+
+    const cambiarClase = () => {
+        document.getElementById('name').className = 'form-control';
+        document.getElementById('surname').className = 'form-control';
+        document.getElementById('email').className = 'form-control';
+        document.getElementById('date').className = 'form-control';
+        document.getElementById('dni').className = 'form-control';
+        document.getElementById('region').className = 'form-control';
+        document.getElementById('city').className = 'form-control';
+        document.getElementById('address').className = 'form-control';
+        document.getElementById('number').className = 'form-control';
+    };*/
 };
