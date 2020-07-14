@@ -14,6 +14,33 @@ const procesarFormulario = event => {
     const floor = target.floor.value;
     if (!name || !surname || !email || !date || !dni || !region || !city || !address || !number) {
         alert('No se han completado todos los campos requeridos');
+        if (!name) {
+            document.getElementById('name').className = 'form-control is-invalid';
+        }
+        if (!surname) {
+            document.getElementById('surname').className = 'form-control is-invalid';
+        }
+        if (!email) {
+            document.getElementById('email').className = 'form-control is-invalid';
+        }
+        if (!date) {
+            document.getElementById('date').className = 'form-control is-invalid';
+        }
+        if (!dni) {
+            document.getElementById('dni').className = 'form-control is-invalid';
+        }
+        if (!region) {
+            document.getElementById('region').className = 'form-control is-invalid';
+        }
+        if (!city) {
+            document.getElementById('city').className = 'form-control is-invalid';
+        }
+        if (!address) {
+            document.getElementById('address').className = 'form-control is-invalid';
+        }
+        if (!number) {
+            document.getElementById('number').className = 'form-control is-invalid';
+        }
     } else {
         const myData = document.getElementById('my-data');
         const formData = `
@@ -58,4 +85,16 @@ const borrarFormulario = () => {
     dpto.value = '';
     const floor = document.getElementById('floor');
     floor.value = '';
+};
+
+const cambiarClase = () => {
+    document.getElementById('name').className = 'form-control';
+    document.getElementById('surname').className = 'form-control';
+    document.getElementById('email').className = 'form-control';
+    document.getElementById('date').className = 'form-control';
+    document.getElementById('dni').className = 'form-control';
+    document.getElementById('region').className = 'form-control';
+    document.getElementById('city').className = 'form-control';
+    document.getElementById('address').className = 'form-control';
+    document.getElementById('number').className = 'form-control';
 };
