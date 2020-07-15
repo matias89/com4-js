@@ -11,95 +11,95 @@
 <body>
     <div class="container mt-4 bg-info">
         <h1>Práctico N°1 Formulario</h1>
-        <form id="myForm" onsubmit="procesarFormulario(event);">
-            <div class="form-group row ">
-                <div id="nombre " class="col-md-6 mt-2 ">
+        <form id="myForm" onsubmit="procesarFormulario(event);" novalidate>
+            <div class="form-group row">
+                <div id="nombre" class="col-md-6 mt-2">
                     <label>Nombre</label>
-                    <input type="text " class="form-control " id="name " required>
-                    <div class="invalid-feedback ">
+                    <input type="text" class="form-control" id="name" onblur="cambiarClase();" required>
+                    <div class="invalid-feedback">
                         Debe ingresar un Nombre
                     </div>
                 </div>
-                <div class="col-md-6 mt-2 ">
+                <div class="col-md-6 mt-2">
                     <label>Apellido</label>
-                    <input type="text " class="form-control " id="surname " required>
-                    <div class="invalid-feedback ">
+                    <input type="text" class="form-control" id="surname" onblur="cambiarClase();" required>
+                    <div class="invalid-feedback">
                         Debe ingresar un Apellido
                     </div>
                 </div>
-                <div class="col-md-6 mt-2 ">
-                    <label for="email ">Correo electrónico</label>
-                    <input type="email " class="form-control " id="email " aria-describedby="emailHelp " required>
-                    <small id="emailHelp " class="form-text text-muted ">Nunca compartiremos su dirección de correo con otras personas.</small>
-                    <div class="invalid-feedback ">
+                <div class="col-md-6 mt-2">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" onblur="cambiarClase();" aria-describedby="emailHelp " required>
+                    <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su dirección de correo con otras personas.</small>
+                    <div class="invalid-feedback">
                         Debe ingresar un email
                     </div>
                 </div>
-                <div class="col-md-6 mt-2 ">
+                <div class="col-md-6 mt-2">
                     <label>Fecha de Nacimiento</label>
-                    <input type="date " class="form-control " id="date " required>
-                    <div class="invalid-feedback ">
+                    <input type="date" class="form-control" id="date" onblur="cambiarClase();" required>
+                    <div class="invalid-feedback">
                         Debe ingresar una Fecha
                     </div>
                 </div>
-                <div class="col-md-12 mt-2 ">
+                <div class="col-md-12 mt-2">
                     <label>Número de Documento</label>
-                    <input type="number " class="form-control " id="dni " required>
-                    <div class="invalid-feedback ">
+                    <input type="number" class="form-control" id="dni" onblur="cambiarClase();" required>
+                    <div class="invalid-feedback">
                         Debe ingresar un DNI
                     </div>
                 </div>
-                <div class="col-md-6 mt-2 ">
+                <div class="col-md-6 mt-2">
                     <label>Provincia</label>
-                    <input type="text " class="form-control " id="region " required>
+                    <input type="text" class="form-control" id="region" onblur="cambiarClase();" required>
                     <div class="invalid-feedback ">
                         Debe ingresar una Provincia
                     </div>
                 </div>
-                <div class="col-md-6 mt-2 ">
+                <div class="col-md-6 mt-2">
                     <label>Ciudad</label>
-                    <input type="text " class="form-control " id="city " required>
-                    <div class="invalid-feedback ">
+                    <input type="text" class="form-control" id="city" onblur="cambiarClase();" required>
+                    <div class="invalid-feedback">
                         Debe ingresar una Ciudad
                     </div>
                 </div>
-                <div class="col-md-6 mt-2 ">
+                <div class="col-md-6 mt-2">
                     <label>Domicilio</label>
-                    <input type="text " class="form-control " id="address " required>
-                    <div class="invalid-feedback ">
+                    <input type="text" class="form-control" id="address" onblur="cambiarClase();" required>
+                    <div class="invalid-feedback">
                         Debe ingresar un Domicilio
                     </div>
                 </div>
-                <div class="col-md-2 mt-2 ">
+                <div class="col-md-2 mt-2">
                     <label>Número</label>
-                    <input type="number " class="form-control " id="number " required>
-                    <div class="invalid-feedback ">
+                    <input type="number" class="form-control" id="number" onblur="cambiarClase();" required>
+                    <div class="invalid-feedback">
                         Debe ingresar un Número
                     </div>
                 </div>
-                <div class="col-md-2 mt-2 ">
+                <div class="col-md-2 mt-2">
                     <label>Dpto</label>
-                    <input type="number " class="form-control " id="dpto ">
+                    <input type="number" class="form-control" id="dpto">
                 </div>
-                <div class="col-md-2 mt-2 ">
+                <div class="col-md-2 mt-2">
                     <label>Piso</label>
-                    <input type="number " class="form-control " id="floor ">
+                    <input type="number" class="form-control" id="floor">
                 </div>
             </div>
-            <div class="row justify-content-md-center ">
-                <button type="submit " class="btn btn-primary ">Enviar</button>
-                <button type="button " class="btn btn-danger " onclick="borrarFormulario(); ">Limpiar</button>
+            <div class="row justify-content-md-center">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="button" class="btn btn-danger" onclick="borrarFormulario();">Limpiar</button>
             </div>
             <hr />
-            <div class="jumbotron ">
-                <h1 class="display-4 ">Vista Previa</h1>
-                <p class="lead ">A continuación puedes ver los datos que se han llenado en el formuarlio de arriba, si al presionar ENVIAR los datos se han completado correctamente.</p>
-                <hr class="my-4 ">
-                <div id="my-data "></div>
+            <div class="jumbotron">
+                <h1 class="display-4">Vista Previa</h1>
+                <p class="lead">A continuación puedes ver los datos que se han llenado en el formuarlio de arriba, si al presionar ENVIAR los datos se han completado correctamente.</p>
+                <hr class="my-4">
+                <div id="my-data"></div>
             </div>
         </form>
     </div>
-    <script type="text/javascript " src="./js/main.js "></script>
+    <script type="text/javascript" src="./js/main.js"></script>
 </body>
 
 </html>
