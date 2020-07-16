@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctico</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="bg-info text-white text-center font-weight-bold text-uppercase">Por favor complete el formulario a continuacion</h1>
+        <br>
+        <form id="myForm" onsubmit="procesarFormulario(event);" novalidate>
+            <div class="form-group">
+                <label for="name">Nombres *</label>
+                <input type="text" class="form-control" id="name" onblur="sacarError();" required>
+                <div id="errorname" style="color: red;"></div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Apellidos *</label>
+                <input type="text" class="form-control" id="lastName" onblur="sacarError();" required>
+                <div id="errorlastName" style="color: red;"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico *</label>
+                <input required type="email" class="form-control" id="email" aria-describedby="emailHelp" onblur="sacarError();">
+                <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su dirección de correo con otras personas.</small>
+                <div id="erroremail" style="color: red;"></div>
+            </div>
+            <div class="form-group">
+                <label for="birthDate">Fecha de nacimiento *</label>
+                <input type="date" class="form-control" id="birthDate" onblur="sacarError();">
+                <div id="errorbirthDate" style="color: red;"></div>
+            </div>
+            <div class="form-group">
+                <label for="street">Calle *</label>
+                <input type="text" class="form-control" id="street" onblur="sacarError();">
+                <div id="errorstreet" style="color: red;"></div>
+            </div>
+            <div class="form-group">
+                <label for="streetNumber">N° *</label>
+                <input type="number" class="form-control" id="streetNumber" onblur="sacarError();">
+                <div id="errorstreetNumber" style="color: red;"></div>
+            </div>
+            <div class="form-group">
+                <label for="dni">DNI N° *</label>
+                <input type="number" class="form-control" id="dni" onblur="sacarError();">
+                <div id="errordni" style="color: red;"></div>
+            </div>
+            <div class="form-group">
+                <label for="flat">Departamento</label>
+                <input type="text" class="form-control" id="flat" placeholder="(opcional)">
+            </div>
+            <div class="form-group">
+                <label for="floor">Piso</label>
+                <input type="text" class="form-control" id="floor" placeholder="(opcional)">
+            </div>
+            <div class="form-group">
+                <label for="city">Ciudad *</label>
+                <input type="text" class="form-control" id="city" onblur="sacarError();">
+                <div id="errorcity" style="color: red;"></div>
+            </div>
+            <div class="form-group">
+                <label for="state">Provincia *</label>
+                <input type="text" class="form-control" id="state" onblur="sacarError();" required>
+                <div id="errorstate" style="color: red;"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button> 
+            <button type="button" class="btn btn-danger" onclick="borrarFormulario();">Limpiar</button>
+            <hr />
+            <div class="jumbotron">
+                <h1 class="display-4">Vista Previa</h1>
+                <p class="lead">A continuación puedes ver los datos que se han llenado en el formuarlio de arriba, si al presionar ENVIAR los datos se han completado correctamente.</p>
+                <hr class="my-4">
+                <div id="my-data"></div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="./js/formulario.js"></script>
+</body>
+</html>
