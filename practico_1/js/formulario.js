@@ -84,7 +84,22 @@ const procesarFormulario = event => {
     if (countError > 0) {
         alert('No se han completado todos los campos requeridos. Los datos requeridos están indicados con *');
     }
-
+    const myData = document.getElementById('my-data');
+    const formData = 
+        `<h4>Nombre: ${name.value}</h4> 
+         <h4>Apellido: ${lastName.value}</h4>
+         <h4>E-mail: ${email.value}</h4>
+         <h4>Fecha de nacimiento: ${birthDate.value}</h4>
+         <h4>Calle: ${street.value} &nbsp - &nbsp N°: ${streetNumber.value}</h4>
+         <h4>DNI N°: ${dni.value}</h4>
+         <h4>Departamento: ${flat.value} &nbsp - &nbsp Piso: ${floor.value}</h4>
+         <h4>Ciudad: ${city.value}</h4>
+         <h4>Provincia: ${state.value}</h4>`;
+    if (name && lastName && email && birthDate && street && streetNumber && dni && city && state) {
+        myData.innerHTML = formData;
+    } else {
+        myData.innerHTML = '';
+    } 
     return;
     /*
     const target = event.target;
@@ -149,7 +164,7 @@ const procesarFormulario = event => {
     } 
     */
 };
-const borrarFormulario = () => {
+/*const borrarFormulario = () => {
     const name = document.getElementById('name');
     name.value = '';
     errorname.innerText = '';
@@ -183,4 +198,7 @@ const borrarFormulario = () => {
     errorstate.innerText = '';
     const myData = document.getElementById('my-data');
     myData.innerHTML = '';
-}; 
+}; */
+const borrarFormulario = () => {
+    document.getElementById('myForm').reset();
+};
