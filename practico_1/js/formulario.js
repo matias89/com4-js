@@ -64,12 +64,6 @@ const procesarFormulario = event => {
             state
         }
     } = event;
-    /*
-    const inputs2 = document.getElementsByClassName('form-control');
-    for (let i = 0; i < inputs2.length; i++) {
-        console.log(inputs2[i]);
-    }
-    */
     const inputs = document.querySelectorAll('input');
     let countError = 0;
     inputs.forEach(element => {
@@ -79,29 +73,28 @@ const procesarFormulario = event => {
            err.innerText = error;
            countError++;
        }
+    
     });
 
     if (countError > 0) {
         alert('No se han completado todos los campos requeridos. Los datos requeridos están indicados con *');
     }
 
+    else if (countError >= 0) {
+        const myData = document.getElementById('my-data');
+        const formData = 
+            `<h4>Nombre: ${name.value}</h4> 
+             <h4>Apellido: ${lastName.value}</h4>
+             <h4>E-mail: ${email.value}</h4>
+             <h4>Fecha de nacimiento: ${birthDate.value}</h4>
+             <h4>Calle: ${street.value} &nbsp - &nbsp N°: ${streetNumber.value}</h4>
+             <h4>DNI N°: ${dni.value}</h4>
+             <h4>Departamento: ${flat.value} &nbsp - &nbsp Piso: ${floor.value}</h4>
+             <h4>Ciudad: ${city.value}</h4>
+             <h4>Provincia: ${state.value}</h4>`;
+        myData.innerHTML = formData;
+       }
     return;
-    /*
-    const target = event.target;
-    const name = target.name.value;
-    const lastName = target.lastName.value;
-    const email = target.email.value;
-    const birthDate = target.birthDate.value;
-    const street = target.street.value;
-    const streetNumber = target.streetNumber.value;
-    const dni = target.dni.value;
-    const flat = target.flat.value;
-    const floor = target.floor.value;
-    const city = target.city.value;
-    const state = target.state.value;
-    if (!name || !lastName || !email || !birthDate || !street || !streetNumber || !dni || !city || !state) {
-        alert('No se han completado todos los campos requeridos. Los datos requeridos están indicados con *');
-    }
     if (!name) {
         errorname.innerText = error;
     }
@@ -129,25 +122,6 @@ const procesarFormulario = event => {
     if (!state) {
         errorstate.innerText = error;
     } 
-    
-    // Si todo va bien en las validaciones
-    const myData = document.getElementById('my-data');
-    const formData = 
-        `<h4>Nombre: ${name}</h4> 
-         <h4>Apellido: ${lastName}</h4>
-         <h4>E-mail: ${email}</h4>
-         <h4>Fecha de nacimiento: ${birthDate}</h4>
-         <h4>Calle: ${street} &nbsp - &nbsp N°: ${streetNumber}</h4>
-         <h4>DNI N°: ${dni}</h4>
-         <h4>Departamento: ${flat} &nbsp - &nbsp Piso: ${floor}</h4>
-         <h4>Ciudad: ${city}</h4>
-         <h4>Provincia: ${state}</h4>`;
-    if (name && lastName && email && birthDate && street && streetNumber && dni && city && state) {
-        myData.innerHTML = formData;
-    } else {
-        myData.innerHTML = '';
-    } 
-    */
 };
 const borrarFormulario = () => {
     const name = document.getElementById('name');
