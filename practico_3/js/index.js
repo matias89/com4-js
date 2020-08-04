@@ -39,7 +39,7 @@ const crearDetalle = (title, body) => {
     `;
 }
 
-const crearColumna = (id, title, body) => {
+/*const crearColumna = (id, title, body) => {
     const template = `
         <div class="col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -57,7 +57,7 @@ const crearColumna = (id, title, body) => {
         </div>
     `;
     return template;
-};
+};  */
 
 const acortarTexto = (text, limit) => {
     const total = text.length;
