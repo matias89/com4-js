@@ -11,11 +11,9 @@ const traerPosts = () => {
                         /*const { id, title, body } = item;
                         const column = crearColumna(id, title, body);
                         content = content + column;*/
-                        const { id, title, body } = item;
-                        crearColumna(id, title, body);
+                        crearColumna(item);
                     });
                     //app.innerHTML = content;
-                    app.appendChild(container);
                 });
         });
 };
@@ -25,24 +23,44 @@ const traerPost = id => {
         .then(response => {
             response.json()
                 .then(data => {
-                    const { title, body } = data;
-                    detail.innerHTML = crearDetalle(title, body);
+                    /*const { title, body } = data;
+                    detail.innerHTML = crearDetalle(title, body);*/
+                    crearDetalle(data);
                 });
         });
 };
 
-const crearDetalle = (title, body) => {
-    return `
+const crearDetalle = (data) => {
+    const { title, body } = data;
+    const container = document.createElement('div');
+    const myH2 = document.createElement('h2');
+    const myP = document.createElement('p');
+    const myP1 = document.createElement('p');
+
+    myH2.innerText = title;
+    myH2.className = 'blog-post-title';
+    myP.innerHTML = 'August 5, 2020 by <a href="#">Rafa</a>';
+    myP.className = 'blog-post-meta';
+    myP1.innerText = body;
+
+    container.appendChild(myH2);
+    container.appendChild(myP);
+    container.appendChild(myP1);
+
+    detail.appendChild(container);
+    /*return `
     <div class="blog-post">
         <h2 class="blog-post-title">${title}</h2>
         <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
 
         <p>${body}</p>
     </div>
-    `;
+    `*/
+    ;
 }
 
-const crearColumna = (id, title, body) => {
+const crearColumna = (item) => {
+    const { id, title, body } = item;
     const container = document.createElement('div');
     const row = document.createElement('div');
     const caja = document.createElement('div');
@@ -56,23 +74,25 @@ const crearColumna = (id, title, body) => {
 
     myA.innerText = 'Continue Reading';
     myA.className = 'stretched-link';
-    myA.href = './detail.html#${id}';
+    myA.href = `./detail.html#${id}`;
     myA.title = title;
     myP.innerText = acortarTexto(body, 100);
-    myP.className = 'card-text mb-auto';
+    myP.className = 'card-text mb-auto p-4';
     div1_caja.innerText = '5 August';
     div1_caja.className = 'mb-1 text-muted';
     myH3.innerText = acortarTexto(title, 20);
     myH3.className = 'mb-0';
-    caja.className = 'col p-4 d-flex flex-column position-static';
+    caja.className = 'col p-4 d-flex flex-column position-static border border-success';
     row.className = 'row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative';
     container.className = 'col-md-6';
 
     caja.appendChild(myH3);
+    caja.appendChild(div1_caja);
     caja.appendChild(myP);
     caja.appendChild(myA);
     row.appendChild(caja);
     container.appendChild(row);
+    app.appendChild(container);
 
 
     /*const template = `
