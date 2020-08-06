@@ -1,0 +1,11 @@
+{
+  "name": "comision4a",
+  "version": "1.0.0",
+  "description": "Clases de práctica de Javascript",
+  "author": "Alumnos",
+  "dependencies": {
+    "bootstrap": "4.5.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
