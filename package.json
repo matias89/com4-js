@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "description": "Clases de práctica de Javascript",
   "author": "Alumnos",
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html --public-url ./"
+  },
   "dependencies": {
     "bootstrap": "4.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "parcel-bundler": "1.12.4"
   }
 }
