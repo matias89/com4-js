@@ -10,7 +10,7 @@ const traerPosts = () => {
                     data.forEach(item => {
                         //const { id, title, body } = item;
                         // const column = crearColumna(id, title, body);
-                        const columna = crearColumna(item)
+                        crearColumna(item)
                         // content = content + column;
 
                     });
@@ -42,7 +42,6 @@ const crearDetalle = (title, body) => {
 }
 
 const crearColumna = item => {
-    //const crearColumna = (id, title, body) => {
     /*const template = ` 
            <div class="col-md-6">
             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -78,6 +77,7 @@ const crearColumna = item => {
     const h3 = document.createElement('h3');
     h3.className = ('mb-0')
     h3.innerHTML = acortarTexto(title, 20)
+    div2.appendChild(h3);
     
     const div3 = document.createElement('div');
     div3.className = ('mb-1 text-muted')
@@ -87,18 +87,15 @@ const crearColumna = item => {
     const p = document.createElement('p');
     p.className = ('card-text mb-auto');
     p.innerHTML =acortarTexto(body,100);
+    div2.appendChild(p);
+    
     const a = document.createElement('a');
     a.className = ('stretched-link')
     a.href = `./detail.html#${id}`
     a.title = title
     a.innerHTML = 'continue reading';
-    
-
-    
-    div2.appendChild(h3);
-    
-    div2.appendChild(p);
     div2.appendChild(a);
+    
     div1.appendChild(div2);
     container.appendChild(div1);
     app.appendChild(container);
