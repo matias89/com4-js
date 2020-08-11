@@ -7,6 +7,51 @@
     <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
-    <h1>Hola, este es mi primer servidor :)</h1>
+    <div id="app"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js" integrity="sha512-kp7YHLxuJDJcOzStgd6vtpxr4ZU9kjn77e6dBsivSz+pUuAuMlE2UTdKB7jjsWT84qbS8kdCWHPETnP/ctrFsA==" crossorigin="anonymous"></script>
+    <script type="text/babel">
+
+    const Header = <header id="esto-es-un-id">Soy el header</header>;
+    const Card = (
+        <article>
+            <h3>Soy un titulo</h3>
+            <p>asdasd asdasdasdas dasdasda sdad</p>
+            <button><span>Soy</span> un botón</button>
+            <hr />
+        </article>
+    );
+
+    const Card2 = React.createElement('article', null, [
+        React.createElement('h3', null, 'Soy un titulo 2'),
+        React.createElement('p', null, 'asdasd asdasdasdas dasdasda sdad'),
+        React.createElement('button', null, 'Soy un botón')
+    ]);
+
+    //const Header = React.createElement('header', null, 'Soy el header');
+    const Main = React.createElement('main', null, [Card, Card, Card, Card2, Card2]);
+    const Footer = React.createElement('footer', null, 'Soy el footer');
+    //const App = React.createElement('div', null, [Header, Main, Footer]);
+
+    class App extends React.Component {
+        render() {
+            //return React.createElement('div', {id: this.props.id}, [Header, Main, Footer]);
+            return (
+                <div>
+                    {Header}
+                    {Main}
+                    {Footer}
+                </div>
+            );
+        }
+    }
+
+
+    ReactDOM.render(
+        <App />,
+        document.getElementById('app')
+    );
+    </script>
 </body>
 </html>
